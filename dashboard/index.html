@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Smartgen SMM Panel</title>
+    <meta name="description" content="Manage your social media growth. Place orders, add funds, and track your progress with Smartgen SMM Panel.">
+    <meta name="author" content="Sayad Md Bayezid Hosan">
+    <meta name="robots" content="noindex, nofollow"> <link rel="canonical" href="https://bayeziddev.github.io/SMM-Panel/dashboard/index.html">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    
+    <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .blue-grad { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+        .accent-grad { background: linear-gradient(135deg, #2563eb, #60a5fa); }
+        .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+        .page { display: none; }
+        .page.active { display: block; }
+        .sidebar { transition: transform 0.3s ease; }
+        .sidebar.closed { transform: translateX(-100%); }
+        .nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border-radius: 0.5rem; cursor: pointer; font-size: 0.875rem; font-weight: 500; color: #374151; transition: background 0.15s; }
+        .nav-item:hover { background: #e0f2fe; }
+        .nav-item.active { background: #bfdbfe; color: #1e40af; font-weight: 600; }
+        .nav-category { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #9ca3af; padding: 1rem 1rem 0.3rem 1rem; }
+        .platform-btn { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s; background: white; border: 1px solid #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .platform-btn:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .platform-btn.active { background: #3b82f6; border-color: transparent; box-shadow: 0 4px 12px rgba(59,130,246,0.3); }
+        .svc-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+        .svc-table th { background: #f9fafb; padding: 8px 12px; text-align: left; font-weight: 600; white-space: nowrap; border-bottom: 2px solid #e5e7eb; }
+        .svc-table td { padding: 6px 12px; border-bottom: 1px solid #f3f4f6; white-space: nowrap; }
+        .svc-table tr:hover { background: #f0fdf4; }
+        .cat-header { background: #1e40af; color: white; font-weight: 700; font-size: 0.85rem; }
+        .cat-header td { padding: 8px 12px; }
+        .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; display: flex; align-items: center; justify-content: center; }
+        .modal-box { background: white; border-radius: 1rem; max-width: 560px; width: 92%; max-height: 85vh; overflow-y: auto; padding: 1.5rem; position: relative; }
+        @media (min-width: 640px) { .platform-btn { width: 56px; height: 56px; } .platform-btn img { width: 28px; height: 28px; } }
+        @media (min-width: 768px) {
+            .sidebar { transform: translateX(0) !important; position: sticky; top: 0; height: 100vh; }
+        }
+    </style>
+</head>
+<body class="w-full min-h-screen bg-slate-50">
+
+    <div id="dashboard-view" class="w-full min-h-screen flex">
+        
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden" onclick="toggleSidebar()"></div>
+        
+        <aside id="sidebar" class="sidebar closed fixed md:relative z-40 w-64 bg-white border-r border-gray-100 overflow-y-auto flex flex-col h-screen">
+            <div class="p-4 border-b border-gray-100 flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/bayeziddev/SMM-Panel/main/assets/smartgen-smm-panel-logo.svg" alt="Smartgen Logo" class="h-8">
+            </div>
+            
+            <nav class="flex-1 py-4 px-3 space-y-1">
+                <div class="nav-category">Order & Services</div>
+                <a class="nav-item active" data-page="home"><i data-lucide="plus-circle" style="width:18px;height:18px;"></i> New order</a>
+                <a class="nav-item" data-page="add-funds"><i data-lucide="credit-card" style="width:18px;height:18px;"></i> Add funds</a>
+                <a class="nav-item" data-page="services"><i data-lucide="grid" style="width:18px;height:18px;"></i> Services</a>
+                <a class="nav-item" data-page="my-orders"><i data-lucide="shopping-bag" style="width:18px;height:18px;"></i> My Orders</a>
+                <a class="nav-item" data-page="my-tickets"><i data-lucide="ticket" style="width:18px;height:18px;"></i> Support Tickets</a>
+                <a class="nav-item" data-page="mass-order"><i data-lucide="zap" style="width:18px;height:18px;"></i> Mass Order</a>
+                
+                <div class="nav-category mt-4">Earn Money</div>
+                <a class="nav-item" data-page="child-panel"><i data-lucide="layers" style="width:18px;height:18px;"></i> Child panel</a>
+                <a class="nav-item" data-page="affiliates"><i data-lucide="users" style="width:18px;height:18px;"></i> Affiliates</a>
+                
+                <div class="nav-category mt-4">API & Settings</div>
+                <a class="nav-item" data-page="dashboard-overview"><i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i> Dashboard Stats</a>
+                <a class="nav-item" data-page="api"><i data-lucide="code" style="width:18px;height:18px;"></i> API</a>
+                <a class="nav-item" data-page="account"><i data-lucide="user" style="width:18px;height:18px;"></i> Account</a>
+            </nav>
+            
+            <div class="p-3 border-t border-gray-100">
+                <a href="../index.html" class="nav-item"><i data-lucide="arrow-left" style="width:18px;height:18px;"></i> Back to Main Site</a>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col min-w-0">
+            <header class="blue-grad p-4 pb-14 md:pb-16 md:rounded-bl-3xl">
+                <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <button id="menu-toggle" class="md:hidden text-white" type="button" onclick="toggleSidebar()"><i data-lucide="menu" style="width:24px;height:24px;"></i></button>
+                        <h1 class="text-white font-bold text-xl">Welcome, <span id="val-username">Connect With Bayezid</span> 👋</h1>
+                    </div>
+                    <div class="text-white font-bold bg-white/20 px-4 py-2 rounded-full shadow-sm">
+                        Balance: $0.00
+                    </div>
+                </div>
+            </header>
+            
+            <main class="max-w-5xl w-full mx-auto px-4 -mt-8 pb-12 flex-1">
+                
+                <div id="page-home" class="page active">
+                    <div class="bg-white rounded-2xl shadow p-4 mb-4">
+                        <div id="platform-grid" class="grid grid-cols-5 sm:flex sm:flex-wrap gap-2 sm:gap-3 justify-center">
+                            <button type="button" class="platform-btn active" data-platform="Facebook" title="Facebook"><img src="https://api.iconify.design/logos:facebook.svg" alt="Facebook"></button>
+                            <button type="button" class="platform-btn" data-platform="YouTube" title="YouTube"><img src="https://api.iconify.design/logos:youtube-icon.svg" alt="YouTube"></button>
+                            <button type="button" class="platform-btn" data-platform="Instagram" title="Instagram"><img src="https://api.iconify.design/skill-icons:instagram.svg" alt="Instagram"></button>
+                            <button type="button" class="platform-btn" data-platform="TikTok" title="TikTok"><img src="https://api.iconify.design/logos:tiktok-icon.svg" alt="TikTok"></button>
+                            <button type="button" class="platform-btn" data-platform="Telegram" title="Telegram"><img src="https://api.iconify.design/logos:telegram.svg" alt="Telegram"></button>
+                            <button type="button" class="platform-btn" data-platform="Twitter" title="Twitter/X"><img src="https://api.iconify.design/logos:twitter.svg" alt="Twitter"></button>
+                            <button type="button" class="platform-btn" data-platform="LinkedIn" title="LinkedIn"><img src="https://api.iconify.design/logos:linkedin-icon.svg" alt="LinkedIn"></button>
+                            <button type="button" class="platform-btn" data-platform="Traffic" title="Website Traffic"><img src="https://api.iconify.design/mdi:cloud.svg" alt="Traffic"></button>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <input id="service-search" type="text" placeholder="🔍 Search services..." class="w-full border border-gray-200 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow mb-5 overflow-x-auto">
+                        <table class="svc-table" id="service-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Services</th>
+                                    <th>Order</th>
+                                    <th>Rate/1000</th>
+                                    <th>Min</th>
+                                    <th>Max</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody id="service-tbody"></tbody>
+                        </table>
+                    </div>
+
+                    <section id="order-form-section" class="bg-white rounded-2xl shadow p-6 mb-5 hidden">
+                        <h3 class="font-bold text-lg mb-4 text-blue-900">📦 Place Order</h3>
+                        <form id="order-form" class="space-y-4">
+                            <div>
+                                <label class="text-sm font-medium block mb-1">Selected Service</label>
+                                <input id="selected-svc" type="text" readonly class="w-full border rounded-lg p-3 text-sm bg-gray-50 text-gray-700">
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium block mb-1">Target Link</label>
+                                <input id="link-input" type="url" class="w-full border border-gray-200 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="https://...">
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium block mb-1">Quantity</label>
+                                <input id="qty-input" type="number" min="1" class="w-full border border-gray-200 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter quantity">
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium block mb-1">Total Charge</label>
+                                <input id="charge-display" type="text" readonly class="w-full border rounded-lg p-3 text-sm bg-gray-50 text-blue-700 font-bold" value="$0.00">
+                            </div>
+                            <button type="submit" class="w-full py-3 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 transition">Submit Order</button>
+                        </form>
+                        <div id="form-message" class="mt-3 text-sm text-center hidden"></div>
+                    </section>
+                </div>
+
+                <div id="page-add-funds" class="page">
+                    <section class="bg-white rounded-2xl shadow p-6 max-w-4xl mx-auto">
+                        <h2 class="font-bold text-2xl mb-4 text-slate-800">Add Funds</h2>
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 flex gap-4 items-start mb-8">
+                            <span class="text-2xl">ℹ️</span>
+                            <div>
+                                <h3 class="text-lg font-bold text-blue-800 mb-1">Local Payments Supported</h3>
+                                <p class="text-blue-700 text-sm">We accept bKash, Nagad, and Rocket. Please visit our <a href="../payment-methods.html" class="font-bold underline">Payment Methods page</a> for specific account numbers and full instructions.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="page-my-tickets" class="page">
+                    <section class="bg-white rounded-2xl shadow p-5">
+                        <h2 class="font-bold text-xl text-gray-800 mb-4">Support Tickets</h2>
+                        <div class="overflow-x-auto border rounded-lg">
+                            <table class="w-full text-sm text-left">
+                                <thead class="bg-gray-50 border-b">
+                                    <tr>
+                                        <th class="px-4 py-3 font-semibold">ID</th>
+                                        <th class="px-4 py-3 font-semibold">Subject</th>
+                                        <th class="px-4 py-3 font-semibold">Status</th>
+                                        <th class="px-4 py-3 font-semibold">Last Update</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4" class="px-4 py-6 text-center text-gray-500">No tickets found.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="page-my-orders" class="page">
+                    <section class="bg-white rounded-2xl shadow p-5">
+                        <h2 class="font-bold text-xl mb-3 text-slate-800">Order History</h2>
+                        <div class="overflow-x-auto border rounded-lg">
+                            <table class="w-full text-sm text-left">
+                                <thead class="bg-gray-50 border-b">
+                                    <tr>
+                                        <th class="px-4 py-3 font-semibold">Order ID</th>
+                                        <th class="px-4 py-3 font-semibold">Service</th>
+                                        <th class="px-4 py-3 font-semibold">Charge</th>
+                                        <th class="px-4 py-3 font-semibold">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4" class="px-4 py-6 text-center text-gray-500">You have no orders yet.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="page-services" class="page"><section class="bg-white rounded-2xl shadow p-6"><h2 class="font-bold text-2xl">All Services</h2><p class="text-gray-500 mt-2">Loading full service directory...</p></section></div>
+                <div id="page-mass-order" class="page"><section class="bg-white rounded-2xl shadow p-6"><h2 class="font-bold text-2xl">Mass Order</h2><p class="text-gray-500 mt-2">Bulk ordering interface loading...</p></section></div>
+                <div id="page-child-panel" class="page"><section class="bg-white rounded-2xl shadow p-6"><h2 class="font-bold text-2xl">Child Panel</h2><p class="text-gray-500 mt-2">Start your own SMM panel business.</p></section></div>
+                <div id="page-affiliates" class="page"><section class="bg-white rounded-2xl shadow p-6"><h2 class="font-bold text-2xl">Affiliates</h2><p class="text-gray-500 mt-2">Earn 20% commission on referrals.</p></section></div>
+                <div id="page-dashboard-overview" class="page"><section class="bg-white rounded-2xl shadow p-6"><h2 class="font-bold text-2xl">Dashboard Stats</h2><p class="text-gray-500 mt-2">Analytics and usage statistics.</p></section></div>
+                <div id="page-api" class="page"><section class="bg-white rounded-2xl shadow p-6"><h2 class="font-bold text-2xl">API Access</h2><p class="text-gray-500 mt-2">Documentation and API keys.</p></section></div>
+                <div id="page-account" class="page"><section class="bg-white rounded-2xl shadow p-6"><h2 class="font-bold text-2xl">Account Settings</h2><p class="text-gray-500 mt-2">Manage your profile and security.</p></section></div>
+
+            </main>
+        </div>
+    </div>
+
+    <div id="detail-modal" class="modal-backdrop hidden" onclick="if(event.target===this)closeModal()">
+        <div class="modal-box shadow-xl border border-gray-100">
+            <button type="button" onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700"><i data-lucide="x" style="width:24px;height:24px;"></i></button>
+            <h3 class="font-bold text-lg mb-4 text-blue-900">📋 Service Details</h3>
+            <div id="modal-content" class="space-y-3 text-sm text-slate-700"></div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/8801519601517" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1da851] text-white p-3.5 rounded-full shadow-lg transition-transform hover:scale-110" title="Chat on WhatsApp">
+        <img src="https://api.iconify.design/logos:whatsapp-icon.svg" class="w-8 h-8" alt="WhatsApp">
+    </a>
+
+    <script>
+        // UI Navigation Logic
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('closed');
+            document.getElementById('sidebar-overlay').classList.toggle('hidden');
+        }
+
+        function navigateTo(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('page-' + page);
+            if (target) target.classList.add('active');
+            
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            const activeNav = document.querySelector(`.nav-item[data-page="${page}"]`);
+            if (activeNav) activeNav.classList.add('active');
+            
+            if (window.innerWidth < 768) {
+                document.getElementById('sidebar').classList.add('closed');
+                document.getElementById('sidebar-overlay').classList.add('hidden');
+            }
+            window.location.hash = page;
+        }
+
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.slice(1) || 'home';
+            navigateTo(hash);
+        });
+
+        document.querySelectorAll('.nav-item[data-page]').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+                navigateTo(item.dataset.page);
+            });
+        });
+
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Sample Service Data (To be replaced with your full backend database)
+        const serviceData = [
+            {cat:"Facebook BD Services 🇧🇩",id:445,name:"🇧🇩 FB Page/Profile Followers [10K/Day][100% Real BD] 60 Days ♻️",rate:0.95,min:500,max:100000,platform:"Facebook"},
+            {cat:"Facebook Followers",id:3156,name:"FB Page/Profile Followers [Instant][100K/Day][HQ]",rate:0.22,min:100,max:100000,platform:"Facebook"},
+            {cat:"YouTube Views",id:970,name:"YouTube Views [Instant][Non Drop] 30 Days Refill ♻️",rate:0.58,min:100,max:25000,platform:"YouTube"},
+            {cat:"Instagram Followers",id:1752,name:"IG Followers [Instant][Low Drop] No Refill",rate:0.33,min:100,max:10000,platform:"Instagram"},
+            {cat:"TikTok Views",id:3315,name:"TikTok Views [Instant][10M/Day] Unlimited",rate:0.0132,min:100,max:100000000,platform:"TikTok"}
+        ];
+
+        let currentPlatform = 'Facebook';
+        let selectedService = null;
+
+        // Platform Filter Logic
+        const platformBtns = document.querySelectorAll('#platform-grid .platform-btn');
+        platformBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                platformBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentPlatform = this.dataset.platform;
+                renderTable('');
+            });
+        });
+
+        // Table Render Logic
+        function renderTable(filter) {
+            const tbody = document.getElementById('service-tbody');
+            tbody.innerHTML = '';
+            let lastCat = '';
+            
+            serviceData.filter(s => {
+                const searchMatch = !filter || s.name.toLowerCase().includes(filter.toLowerCase()) || String(s.id).includes(filter);
+                return searchMatch && s.platform === currentPlatform;
+            }).forEach(s => {
+                if(s.cat !== lastCat) {
+                    lastCat = s.cat;
+                    const h = document.createElement('tr');
+                    h.className = 'cat-header';
+                    h.innerHTML = `<td colspan="7">${s.cat}</td>`;
+                    tbody.appendChild(h);
+                }
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="font-medium">${s.id}</td>
+                    <td style="white-space:normal; min-width:240px; font-size:0.8rem;">${s.name}</td>
+                    <td><button type="button" class="px-3 py-1 rounded bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition" onclick="selectOrder(${s.id})">Order</button></td>
+                    <td class="font-semibold text-green-700">$${s.rate}</td>
+                    <td>${s.min.toLocaleString()}</td>
+                    <td>${s.max.toLocaleString()}</td>
+                    <td><button type="button" class="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 text-xs font-bold transition" onclick="showDetails(${s.id})">Details</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Setup Initial Hash and Render
+        const initialHash = window.location.hash.slice(1) || 'home';
+        navigateTo(initialHash);
+        renderTable('');
+
+        // Order Selection Logic
+        function selectOrder(id) {
+            selectedService = serviceData.find(s => s.id === id);
+            if(!selectedService) return;
+            document.getElementById('order-form-section').classList.remove('hidden');
+            document.getElementById('selected-svc').value = selectedService.id + ' - ' + selectedService.name;
+            document.getElementById('qty-input').value = '';
+            document.getElementById('charge-display').value = '$0.00';
+            document.getElementById('order-form-section').scrollIntoView({behavior:'smooth'});
+        }
+
+        // Detail Modal Logic
+        function showDetails(id) {
+            const s = serviceData.find(x => x.id === id);
+            if(!s) return;
+            document.getElementById('modal-content').innerHTML = `
+                <div class="flex justify-between border-b border-gray-100 pb-2"><span class="font-semibold text-gray-500">Service ID</span><span class="font-bold">${s.id}</span></div>
+                <div class="flex justify-between border-b border-gray-100 pb-2 mt-2"><span class="font-semibold text-gray-500">Rate per 1000</span><span class="font-bold text-green-700">$${s.rate}</span></div>
+                <div class="flex justify-between border-b border-gray-100 pb-2 mt-2"><span class="font-semibold text-gray-500">Min / Max</span><span>${s.min.toLocaleString()} - ${s.max.toLocaleString()}</span></div>
+            `;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+        function closeModal() { document.getElementById('detail-modal').classList.add('hidden'); }
+
+        // Live Charge Calculation
+        document.getElementById('qty-input').addEventListener('input', function() {
+            let val = parseInt(this.value) || 0;
+            if (val < 0) val = 0;
+            this.value = val;
+            if(!selectedService) return;
+            document.getElementById('charge-display').value = val > 0 ? '$' + ((selectedService.rate * val) / 1000).toFixed(4) : '$0.00';
+        });
+
+    </script>
+</body>
+</html>
