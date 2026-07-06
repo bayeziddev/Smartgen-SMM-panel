@@ -6,7 +6,7 @@
     <title>Smartgen SMM Panel - #1 Cheapest Social Media Marketing Panel</title>
     <meta name="description" content="Grow your social media presence instantly with Smartgen SMM Panel. Cheapest rates for Facebook, YouTube, Instagram, TikTok, and more. Fast delivery & 24/7 support.">
     <meta name="author" content="Sayad Md Bayezid Hosan">
-    <link rel="canonical" href="https://bayeziddev.github.io/SMM-Panel/index.html">
+    <link rel="canonical" href="https://github.com/bayeziddev/Smartgen-SMM-panel/index.html">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="https://raw.githubusercontent.com/bayeziddev/SMM-Panel/main/assets/smartgen-smm-panel-logo.svg" alt="Smartgen Logo" class="h-10">
+                <img src="https://raw.githubusercontent.com/bayeziddev/Smartgen-SMM-Panel/main/assets/smartgen-smm-panel-logo.svg" alt="Smartgen Logo" class="h-10">
             </a>
             <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
                 <a href="index.html" class="text-blue-600">Home</a>
