@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Smartgen SMM Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .svc-table { width: 100%; border-collapse: collapse; }
+        .svc-table th { background: #f8fafc; padding: 12px 16px; text-align: left; font-weight: 600; border-bottom: 2px solid #e2e8f0; }
+        .svc-table td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; }
+        .svc-table tr:hover { background: #f1f5f9; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="../index.html"><img src="https://raw.githubusercontent.com/bayeziddev/SMM-Panel/main/assets/smartgen-smm-panel-logo.svg" class="h-10"></a>
+            <div class="hidden md:flex space-x-6 font-semibold text-slate-600">
+                <a href="../index.html">Home</a>
+                <a href="index.html" class="text-blue-600">Services</a>
+                <a href="../about/index.html">About</a>
+                <a href="../Contact/index.html">Contact</a>
+            </div>
+            <a href="../dashboard/index.html" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold">Dashboard</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Our Service Directory</h1>
+            <p class="text-slate-600">Browse thousands of professional social media marketing services.</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="max-w-xl mx-auto mb-10">
+            <input type="text" id="searchInput" placeholder="🔍 Search by Service Name or ID (e.g. 970)..." 
+                   class="w-full p-4 rounded-xl border border-slate-200 shadow-sm focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+
+        <!-- Service Table Container -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="svc-table" id="serviceTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Service Name</th>
+                            <th>Rate/1000</th>
+                            <th>Min/Max</th>
+                            <th>Avg. Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="serviceBody">
+                        <!-- Content injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Static Service Data extracted from your list
+        const services = [
+            {id: 970, name: "YouTube Views [Instant] 30 Days Refill ♻️", rate: "$0.58", minmax: "100 - 25,000", time: "2h 55m"},
+            {id: 2247, name: "TikTok Likes [Instant] Mix Quality", rate: "$0.25", minmax: "50 - 50,000", time: "2h 32m"},
+            {id: 3156, name: "FB Page Followers [Instant] HQ No Refill", rate: "$0.22", minmax: "100 - 100,000", time: "23m"},
+            {id: 1752, name: "IG Followers [Instant] Low Drop", rate: "$0.33", minmax: "100 - 10,000", time: "2h 40m"},
+            {id: 3602, name: "Telegram Members [Instant] 30 Days Refill ♻️", rate: "$0.56", minmax: "100 - 50,000", time: "17m"},
+            {id: 900, name: "Twitter Followers [Instant] No Refill", rate: "$3.65", minmax: "10 - 1,000,000", time: "13m"}
+        ];
+
+        const tbody = document.getElementById('serviceBody');
+        const searchInput = document.getElementById('searchInput');
+
+        function render(filter = '') {
+            tbody.innerHTML = '';
+            services.filter(s => 
+                s.name.toLowerCase().includes(filter.toLowerCase()) || 
+                String(s.id).includes(filter)
+            ).forEach(s => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="font-bold text-blue-600">${s.id}</td>
+                        <td class="font-medium">${s.name}</td>
+                        <td class="text-green-600 font-semibold">${s.rate}</td>
+                        <td>${s.minmax}</td>
+                        <td class="text-slate-500">${s.time}</td>
+                        <td><a href="../dashboard/index.html" class="bg-slate-900 text-white px-4 py-1.5 rounded-lg text-sm font-bold">Order</a></td>
+                    </tr>
+                `;
+            });
+        }
+
+        searchInput.addEventListener('input', (e) => render(e.target.value));
+        render(); // Initial load
+    </script>
+</body>
+</html>
