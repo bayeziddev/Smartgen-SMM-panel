@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartgen SMM Panel | Bangladesh's Leading SMM Panel</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Smartgen SMM Panel is Bangladesh's most trusted SMM panel. Buy real social media services for Facebook, Instagram, YouTube, and TikTok. Pay with bKash and Nagad.">
+    <meta name="keywords" content="SMM Panel Bangladesh, Buy Facebook Followers BD, bKash SMM Panel, YouTube Views Bangladesh">
+    <meta name="author" content="Sayad Md Bayezid Hosan">
+    <link rel="canonical" href="https://bayeziddev.github.io/SMM-Panel/">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Smartgen SMM Panel | Bangladesh's Leading SMM Panel">
+    <meta property="og:description" content="Grow your social media fast and affordably. 100% secure, instant delivery, local payments accepted.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/bayeziddev/SMM-Panel/main/assets/smartgen-smm-panel-logo.svg">
+    <meta property="og:url" content="https://bayeziddev.github.io/SMM-Panel/">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts & Styling -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'DM Sans', sans-serif; }
+    </style>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Smartgen SMM Panel",
+      "image": "https://raw.githubusercontent.com/bayeziddev/SMM-Panel/main/assets/smartgen-smm-panel-logo.svg",
+      "@id": "https://bayeziddev.github.io/SMM-Panel/",
+      "url": "https://bayeziddev.github.io/SMM-Panel/",
+      "telephone": "+8801519601517",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Greater Rd",
+        "addressLocality": "Rajshahi",
+        "postalCode": "6000",
+        "addressCountry": "BD"
+      }
+    }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html">
+                        <img class="h-10 w-auto" src="https://raw.githubusercontent.com/bayeziddev/SMM-Panel/main/assets/smartgen-smm-panel-logo.svg" alt="Smartgen SMM Panel Logo">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-blue-600 font-semibold">Home</a>
+                    <a href="services/index.html" class="text-slate-600 hover:text-blue-600 transition">Services</a>
+                    <a href="about/index.html" class="text-slate-600 hover:text-blue-600 transition">About Us</a>
+                    <a href="blog/index.html" class="text-slate-600 hover:text-blue-600 transition">Blog</a>
+                    <a href="Contact/index.html" class="text-slate-600 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="dashboard/index.html" class="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-6 py-2.5 rounded-full font-bold shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">Go to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-blue-800 via-blue-600 to-blue-400 text-white py-20 px-4">
+            <div class="max-w-4xl mx-auto text-center space-y-8">
+                <span class="inline-block bg-white/20 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide uppercase backdrop-blur-sm">
+                    Best SMM Panel in Bangladesh
+                </span>
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+                    Grow Faster, Pay Less.
+                </h1>
+                <p class="text-xl text-blue-50 max-w-2xl mx-auto font-light">
+                    Whether you run a small business in Dhaka or you are a content creator growing your channel — we make social media growth simple, fast, and affordable.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+                    <a href="dashboard/index.html" class="bg-white text-blue-700 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-slate-50 transition w-full sm:w-auto">
+                        Get Started Free
+                    </a>
+                    <a href="services/index.html" class="border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition w-full sm:w-auto">
+                        View Services
+                    </a>
+                </div>
+                <div class="flex justify-center items-center gap-4 pt-8 text-sm font-medium text-blue-100">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-yellow-300"></i> Instant Delivery</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-check text-green-300"></i> 100% Safe</span>
+                    <span class="flex items-center gap-2">৳ Local Payments</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-16 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <h4 class="text-4xl font-extrabold text-blue-600">82,904+</h4>
+                        <p class="text-slate-500 font-medium mt-2 uppercase tracking-wide text-sm">Active Users</p>
+                    </div>
+                    <div>
+                        <h4 class="text-4xl font-extrabold text-blue-600">4.08M+</h4>
+                        <p class="text-slate-500 font-medium mt-2 uppercase tracking-wide text-sm">Orders Completed</p>
+                    </div>
+                    <div>
+                        <h4 class="text-4xl font-extrabold text-blue-600">4,256</h4>
+                        <p class="text-slate-500 font-medium mt-2 uppercase tracking-wide text-sm">Active Services</p>
+                    </div>
+                    <div>
+                        <h4 class="text-4xl font-extrabold text-blue-600">24/7</h4>
+                        <p class="text-slate-500 font-medium mt-2 uppercase tracking-wide text-sm">Expert Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Highlights -->
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">Every Platform. Every Service.</h2>
+                <p class="text-slate-600 mb-12 max-w-2xl mx-auto">From Facebook followers to YouTube watch time, Smartgen SMM Panel covers every social media platform you care about.</p>
+                
+                <div class="flex flex-wrap justify-center gap-6">
+                    <!-- Platform Cards -->
+                    <a href="services/facebook.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition group w-40">
+                        <i class="fa-brands fa-facebook text-4xl text-[#1877F2] mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-slate-700">Facebook</h3>
+                    </a>
+                    <a href="services/instagram.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition group w-40">
+                        <i class="fa-brands fa-instagram text-4xl text-[#E4405F] mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-slate-700">Instagram</h3>
+                    </a>
+                    <a href="services/youtube.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition group w-40">
+                        <i class="fa-brands fa-youtube text-4xl text-[#FF0000] mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-slate-700">YouTube</h3>
+                    </a>
+                    <a href="services/tiktok.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition group w-40">
+                        <i class="fa-brands fa-tiktok text-4xl text-black mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-slate-700">TikTok</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Support Banner -->
+        <section class="max-w-5xl mx-auto px-4 py-12">
+            <div class="bg-green-500 rounded-3xl p-8 md:p-12 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-2">Need Help Choosing a Service?</h3>
+                    <p class="text-green-100 text-lg">Our Bangladeshi support team is available 24/7 to guide you.</p>
+                </div>
+                <a href="https://wa.me/8801519601517" target="_blank" class="bg-white text-green-600 px-8 py-4 rounded-full font-bold shadow hover:bg-green-50 transition flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <img class="h-10 w-auto mb-4 brightness-0 invert" src="https://raw.githubusercontent.com/bayeziddev/SMM-Panel/main/assets/smartgen-smm-panel-logo.svg" alt="Smartgen SMM Panel Logo">
+                    <p class="text-sm text-slate-400 mb-4">Bangladesh's most trusted SMM panel. We offer fast, affordable social media growth services for every platform.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="about/index.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="services/index.html" class="hover:text-white transition">Services</a></li>
+                        <li><a href="blog/index.html" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="Contact/index.html" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="terms/index.html" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="privacy/index.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="refund/index.html" class="hover:text-white transition">Refund Policy</a></li>
+                        <li><a href="payment-methods.html" class="hover:text-white transition">Payment Methods</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contact Info</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-blue-500"></i> Info@sayadbayezid.com</li>
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-green-500"></i> +880 1519601517</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-red-500"></i> Serving all of Bangladesh</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
+                <p>© 2026 All Rights Reserved : <a href="https://www.sayadbayezid.com" class="text-blue-400 hover:underline">Sayad Md Bayezid Hosan</a></p>
+                <p class="mt-1">Maintaining Smartgen SMM Panel & SmartGen Products</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
